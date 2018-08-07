@@ -1,11 +1,14 @@
 {
   "name": "@netanelgilad/broadlinkjs-rm",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "A Node.JS fork of broadlinkjs specifically intended for interacting with RM devices in homebridge-broadlink-rm",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",
