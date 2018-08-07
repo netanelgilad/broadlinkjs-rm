@@ -43,11 +43,12 @@ unsupportedDeviceTypes[parseInt(0x4E4D, 16)] = 'Dooya DT360E (DOOYA_CURTAIN_V2) 
 
 class Broadlink extends EventEmitter {
 
-  constructor () {
+  constructor (port) {
     super();
 
     this.devices = {};
     this.sockets = [];
+    this.port = port || 0;
   }
 
   discover () {
@@ -68,7 +69,7 @@ class Broadlink extends EventEmitter {
       socket.on('listening', this.onListening.bind(this, socket, ipAddress));
       socket.on('message', this.onMessage.bind(this));
 
-      socket.bind(0, ipAddress);
+      socket.bind(this.port, ipAddress);
     })
   }
 
