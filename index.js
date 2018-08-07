@@ -232,6 +232,12 @@ class Device {
     this.iv = new Buffer([0x56, 0x2e, 0x17, 0x99, 0x6d, 0x09, 0x3d, 0x28, 0xdd, 0xb3, 0xba, 0x69, 0x5a, 0x2e, 0x6f, 0x58]);
     this.id = new Buffer([0, 0, 0, 0]);
 
+    
+  }
+
+  start(port) {
+    this.setupSocket(port);
+    
     // Dynamically add relevant RF methods if the device supports it
     const isRFSupported = rmPlusDeviceTypes[parseInt(deviceType, 16)];
     if (isRFSupported) this.addRFSupport();
